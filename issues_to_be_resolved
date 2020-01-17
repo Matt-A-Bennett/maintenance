@@ -1,0 +1,22 @@
+Issue seen on 554.976
+
+It seems that this will only happen if more than 5 of the lab(?) are using the tool box at the same time.
+This means on any pc.
+
+Issue:
+
+License checkout failed.
+License Manager Error -4
+Maximum number of users for Statistics_Toolbox reached.
+Try again later.
+
+Troubleshoot this issue by visiting:
+https://www.mathworks.com/support/lme/R2019b/4
+
+Diagnostic Information:
+Feature: Statistics_Toolbox
+License path:
+/home/mattb/.matlab/R2019b_licenses:/usr/local/MATLAB/R2019b/licenses/license.dat:/usr/local/MATLAB/R2019b/licenses/network.lic
+Licensing error: -4,132.
+
+

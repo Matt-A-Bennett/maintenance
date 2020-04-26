@@ -28,19 +28,41 @@ Users mattb, kirstenp and valerieg have sudo rights and therefore can install th
 
 In general, we should install things in /usr/local/ and add any necessary paths into /etc/profile. That way, all users will be able to use the software.
 
-### notes on things we've installed
+#### Installed
 
-We have AnyDesk installed for remote desktop (after passing through vpn protocol)
+##### General
+Tmux [-mattb]
 
-###
-To make ITKSNAP work, mattb installed the library (libpng12-0-udeb) from: 
-packages.debian.org/jessie/libpng12-0-udeb
+AnyDesk installed for remote desktop (after passing through vpn protocol) [-mattb]
 
-and these two dependencies:
-libc6-udeb (2.19-18+deb8u10)
-zlib1g-udeb (1:1.28.dfsg-2 and others)
+##### Coding
+Matlab 2019b [-Roland]
 
-N.B. I tried using the regular libpng12-0 (rather than the -udeb version), but that didn't work.
-N.B. Do not try with the sid (unstable) libs - I did, and had to reinstall the OS (apparently the are very important...)
-###
+R installed on 26-04-20. Also installed the 'stringr' package to test it worked [-mattb]
+
+Python3 [-mattb]
+
+Anaconda3 [-mattb]
+
+##### Neuroimaging
+FSL [-mattb]
+
+Freesurfer [-mattb]
+
+SPM12 [-mattb]
+
+ANTs [-mattb]
+
+ITKSNAP 3.8.0 [-mattb]
+
+    To make ITKSNAP work, mattb installed the library (libpng12-0-udeb) from: 
+    packages.debian.org/jessie/libpng12-0-udeb
+
+    and these two dependencies:
+    libc6-udeb (2.19-18+deb8u10)
+    zlib1g-udeb (1:1.28.dfsg-2 and others)
+
+    N.B. I tried using the regular libpng12-0 (rather than the -udeb version), but that didn't work.
+    N.B. Do not try with the sid (unstable) libs - I did, and had to reinstall the OS (apparently the are very important...)
+
 

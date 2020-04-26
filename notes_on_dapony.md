@@ -75,7 +75,7 @@ ANTs [-mattb]
 ITKSNAP 3.8.0 [-mattb]
 
  - To make ITKSNAP work, mattb installed the library (libpng12-0-udeb) from: 
-[packages.debian.org/jessie/libpng12-0-udeb]
+<packages.debian.org/jessie/libpng12-0-udeb>
 
 
  - and these two dependencies:

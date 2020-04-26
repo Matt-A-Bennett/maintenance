@@ -42,6 +42,8 @@ R installed on 26-04-20. Also installed the 'stringr' package to test it worked 
 
 Python3 [-mattb]
 
+Spyder3 [-mattb]
+
 Anaconda3 [-mattb]
 
 #### Neuroimaging

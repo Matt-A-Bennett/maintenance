@@ -38,6 +38,19 @@ Users mattb, kirstenp and valerieg have sudo rights and therefore can install
 things (and delete things...). These users can also grant sudo rights to other
 users.
 
+## Tweaks and Changes
+
+When we moved the pony to Valerie's office, we noticed that using ssh -X was no
+longer rendering graphical displays (even though X11Forwarding was set to yes).
+mattb initially semi-fixed it by appending a line to /etc/profile (export
+DISPLAY='localhost:10.0') and occasionally found that I needed to manually
+enter this command after ssh'ing to get it to work...). 
+
+08-08-20: mattb uncommented the following line from /etc/ssh/sshd_config:
+X11DisplayOffset 10 and commented the line in /etc/profile (export
+DISPLAY='localhost:10.0'). This (potential) fix came from this link:
+https://askubuntu.com/questions/61690/ssh-x-xt-error-cant-open-display-0-0
+
 ## Software
 
 In general, we should install things in /usr/local/ and add any necessary paths
@@ -55,6 +68,38 @@ AnyDesk installed for remote desktop (after passing through vpn protocol)
 Matlab 2019b [-Roland]
 
 R installed on 26-04-20. Also installed the 'stringr' package to test it worked
+#### In terminal for R:
+libv8-dev
+libgsl-dev
+libcurl4-openssl-dev
+libxml2-dev
+
+#### R packages for DDM
+shinystan
+V8
+curl
+rsconnect
+openssl
+rstan
+brms
+devtools
+lattice
+Matrix
+RcppEigen
+RWiener
+rtdists
+dplyr
+tidyr
+tibble
+ggplot2
+gridExtra
+DescTools
+xml2
+tidyverse
+emmeans
+tidybayes
+
+
 [-mattb]
 
 Python3 [-mattb]

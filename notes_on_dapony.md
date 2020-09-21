@@ -60,21 +60,20 @@ into /etc/profile. That way, all users will be able to use the software.
 
 #### General
 Tmux [-mattb]
-
+Ruby [mattb]
 AnyDesk installed for remote desktop (after passing through vpn protocol)
 [-mattb]
 
 #### Coding
 Matlab 2019b [-Roland]
 
-R installed on 26-04-20. Also installed the 'stringr' package to test it worked
-#### In terminal for R:
+##### libraries for R:
 libv8-dev
 libgsl-dev
 libcurl4-openssl-dev
 libxml2-dev
 
-#### R packages for DDM
+##### R packages
 shinystan
 V8
 curl
@@ -98,9 +97,6 @@ xml2
 tidyverse
 emmeans
 tidybayes
-
-
-[-mattb]
 
 Python3 [-mattb]
 

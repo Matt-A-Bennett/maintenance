@@ -5,7 +5,7 @@ wiki.debian.org/DontBreakDebian is a useful resource (I found it after breaking
 debian...)
 
 # General
-The pc is labeled by IT as: 553.976
+The pc is labeled by IT as: 554.976
 
 ## System hardware overview
 We installed Debian 10 (Buster). We have two RAID arrays:

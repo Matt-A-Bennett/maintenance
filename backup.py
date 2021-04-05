@@ -18,35 +18,76 @@
 import subprocess
 import socket
 
-backup_dir=f'backup/{socket.gethostname()}'
+backup_dir = f"backup/{socket.gethostname()}"
 
 # 4 snapshots of the directory
 # remove oldest backups
-subprocess.call(["ssh", "mbennett@storage.cism.ucl.ac.be",
-                 "rm -rf", f"{backup_dir}.backup.3"])
+subprocess.call(
+    [
+        "ssh",
+        "mbennett@storage.cism.ucl.ac.be",
+        "rm -rf",
+        f"{backup_dir}.backup.3"
+    ]
+)
 
 # rotate all backups
-subprocess.call(["ssh", "mbennett@storage.cism.ucl.ac.be",
-                 "mv", f"{backup_dir}.backup.2", f"{backup_dir}.backup.3"])
-subprocess.call(["ssh", "mbennett@storage.cism.ucl.ac.be",
-                 "mv", f"{backup_dir}.backup.1", f"{backup_dir}.backup.2"])
-subprocess.call(["ssh", "mbennett@storage.cism.ucl.ac.be",
-                 "mv", f"{backup_dir}.backup.0", f"{backup_dir}.backup.1"])
+subprocess.call(
+    [
+        "ssh",
+        "mbennett@storage.cism.ucl.ac.be",
+        "mv",
+        f"{backup_dir}.backup.2",
+        f"{backup_dir}.backup.3",
+    ]
+)
 
-with open('/home/mattb/maintenance/dirs_to_backup.txt') as dirs_to_backup:
+subprocess.call(
+    [
+        "ssh",
+        "mbennett@storage.cism.ucl.ac.be",
+        "mv",
+        f"{backup_dir}.backup.1",
+        f"{backup_dir}.backup.2",
+    ]
+)
+subprocess.call(
+    [
+        "ssh",
+        "mbennett@storage.cism.ucl.ac.be",
+        "mv",
+        f"{backup_dir}.backup.0",
+        f"{backup_dir}.backup.1",
+    ]
+)
+
+with open("/home/mattb/maintenance/dirs_to_backup.txt") as dirs_to_backup:
     for dir_to_backup in dirs_to_backup:
-        dir_to_backup=dir_to_backup.strip()
-        backup_name=dir_to_backup.split('/')[-1]
+        dir_to_backup = dir_to_backup.strip()
+        backup_name = dir_to_backup.split("/")[-1]
 
-        subprocess.call(["ssh", "mbennett@storage.cism.ucl.ac.be",
-                         "mkdir -p", f"{backup_dir}.backup.0/{backup_name}"])
+        subprocess.call(
+            [
+                "ssh",
+                "mbennett@storage.cism.ucl.ac.be",
+                "mkdir -p",
+                f"{backup_dir}.backup.0/{backup_name}",
+            ]
+        )
 
         # create new full backup.0 and replace files in backup.1 that have not
         # been modified in backup.0 with hardlinks to backup.0 (this way the
         # file is stored only once but has multiple links/pointers, so any
         # backup.x with a link can be used to restore it)
-        subprocess.call(["rsync", "-aqz", "--delete", "-e",
-                         "ssh", f"--link-dest=../../../{backup_dir}.backup.1/{backup_name}/",
-                         f"{dir_to_backup}/",
-                         f"mbennett@storage.cism.ucl.ac.be:{backup_dir}.backup.0/{backup_name}/"])
-
+        subprocess.call(
+            [
+                "rsync",
+                "-aqz",
+                "--delete",
+                "-e",
+                "ssh",
+                f"--link-dest=../../../{backup_dir}.backup.1/{backup_name}/",
+                f"{dir_to_backup}/",
+                f"mbennett@storage.cism.ucl.ac.be:{backup_dir}.backup.0/{backup_name}/",
+            ]
+        )
